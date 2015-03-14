@@ -2,7 +2,6 @@ angular.module('APINotack.configController', ['ionic'])
  .controller('configCtrl', function ($scope, $ionicPopup, $location, restClient) {
 
         $scope.updatePassword=function(){
-        	/* Comprobaciones de las contraseñas. */
         	var oldPass = config.oldpass;
         	var newPass = config.newpass;
         	var repPass = config.reppass;
