@@ -13,7 +13,7 @@ angular.module('APINotack.signupController', ['ionic'])
 	        		if (pass == repPass) { // Los campos de la nueva contraseña coinciden.
 	        			var promise = restClient.signup(name, pass);
 	                	promise.then(function(signedup) {
-	                		if (signedup) {
+	                		if (signedup.data) {
 	                			/* Mostrar popUp. */
 	                			var alertPopup = $ionicPopup.alert({
 	                				title: 'Usuario registrado',
