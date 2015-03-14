@@ -96,7 +96,10 @@ exports.lock=function(request,response)
 
 exports.renewLock=function(request,response)
 {
-	//TODO implementar
+	var b=request.body;
+	console.log(request);
+	
+	response.status(200).send(lockList.renewLock(b.noteId));
 };
 
 exports.shareNote=function(request,response)

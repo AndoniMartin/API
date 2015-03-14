@@ -20,7 +20,7 @@ function lockList(){
 	
 	this.existsNote=function(noteId){
 		var found=false;
-		for(var i=0;i<this.lockList.length && !found)
+		for(var i=0;i<this.lockList.length && !found;i++)
 			if(this.lockList[i].noteId===noteId)
 				found=true;
 		
@@ -29,7 +29,7 @@ function lockList(){
 	
 	this.findNoteId=function(noteId){
 		var found=false;
-		for(var i=0;i<this.lockList.length && !found)
+		for(var i=0;i<this.lockList.length && !found; i++)
 			if(this.lockList[i].noteId===noteId)
 				found=this.lockList[i];
 		
@@ -39,10 +39,9 @@ function lockList(){
 	this.renewLock=function(noteId){
 		var note=this.findNoteId(noteId);
 		if(note)
-		{
 			note.renew();
-			return true;
-		}else return false;
+		
+		return note?true:false;
 		
 	}
 }
