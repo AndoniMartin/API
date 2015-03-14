@@ -78,6 +78,6 @@ angular.module('APINotack.configController', ['ionic'])
 	    			});
 	        	}
         	//} else // Usuario no logueado.
-        		$location.path("/login");
+        		//$location.path("/login");
         }
 })

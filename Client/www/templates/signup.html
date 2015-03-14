@@ -1,0 +1,21 @@
+<ion-view title="Sign up" hide-back-button="true" hide-nav-bar="true">
+	<div class="card">
+	  <div class="item item-divider">
+	    Nuevo usuario
+	  </div>
+	  <div class="item item-text-wrap">
+	  	<label class="item item-input">
+	    	<input ng-required="true" ng-model="signup.user" type="text" placeholder="Usuario"></input>
+	    </label>
+	    <label class="item item-input">
+	    	<input ng-required="true" ng-model="signup.pass" type="password" placeholder="Contraseña"></input>
+	    </label>
+	    <label class="item item-input">
+	    	<input ng-required="true" ng-model="signup.reppass" type="password" placeholder="Repite contraseña"></input>
+	    </label>
+	    <label class="item item-input">
+	    	<button ng-click(signup()) class="button button-block button-positive">Registrar</button>
+	    </label>
+	  </div>
+	</div>
+</ion-view>
