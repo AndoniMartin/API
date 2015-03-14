@@ -19,7 +19,7 @@ app.use(methodOverride());
 //Import models and controllers
 var userModel=require("./models/user.js")(app,mongoose);
 var noteModel=require("./models/note.js")(app,mongoose);
-var loginController=require("./controllers/loginController.js");
+var userController=require("./controllers/userController.js");
 var notesController=require("./controllers/notesController.js");
 var lockController = require("./controllers/lockController.js");
 
@@ -28,7 +28,7 @@ var router=express.Router();
 app.use(router);
 
 router.route('/login')
-.post(loginController.login);
+.post(userController.login);
 
 router.route('/notes/:id')
 .post(notesController.getNotes);
