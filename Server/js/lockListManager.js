@@ -1,17 +1,18 @@
-var lockList = (function () {
-    this.lockList;
+var lockListManager = (function () {
+    var instance;
  
     function createInstance() {
-        this.lockList=new lockList();
+        var lista=new lockList();
+        return lista;
     }
  
     return {
-        getInstance: function () {
+    getInstance: function () {
             if (!instance) {
                 instance = createInstance();
             }
             return instance;
         }
-    };
+    }
     
 })();
