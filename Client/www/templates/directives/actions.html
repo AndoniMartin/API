@@ -1,0 +1,12 @@
+<div class="item item-divider" ng-Click="edit(note)">
+	<button class="button">
+		<i class="icon ion-edit"></i>
+	</button>
+	<button class="button" ng-Click="deleteNote(note)">
+		<i class="icon ion-trash-b"></i>
+	</button>
+	<button class="button" ng-Click="share(note)">
+		<i class="icon ion-android-share-alt"></i>
+	</button>
+	<a>{{note.user}}</a>
+</div>

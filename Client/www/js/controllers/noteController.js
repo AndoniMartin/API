@@ -1,37 +1,41 @@
 angular.module('APINotack.noteController', ['ionic'])
- .controller('noteCtrl', function ($scope, $ionicPopup, $location, restClient) {
-	 
-	 if(localStorage.getItem("user")) {
-		 $scope.save=function(id, title, text) { // Guardar.
-			 var promise = restClient.updateNote(id, title, text);
+.controller('noteCtrl', function ($scope, $ionicPopup, $location, restClient) {
+	if(!localStorage.getItem("user"))
+		 $location.path("/login");
+	
+	$scope.title = note.title;
+	$scope.text = note.body;
+	
+	$scope.save = function() {
+		$scope.note = notesListService.getNoteIndex($stateParams.noteId);
+		if ($scope.note != null) {
+			var promise = restClient.updateNote($scope.note, $scope.title, $scope.text);
 			 promise.then(function() {
 				 var alertPopup = $ionicPopup.alert({
 					 title: 'Nota modificada',
-   				     template: 'La nota ha sido modificada.'
-   				   });
-   				 alertPopup.then(function(res) {
-   				     ;
-   				 })
+  				     template: 'La nota ha sido modificada.'
+  				   });
+  				 alertPopup.then(function(res) {
+  				     ;
+  				 })
 			 })
-		 }
-		 
-		 $scope.add=function(title, body) { // Nueva.
-	        	var user = localStorage.getItem("user");
-	        	if (title && body) { // Campos no vacíos.
-		        	var promise = restClient.signup(user, title, body);
-	                promise.then(function() {
-                		$location.path("/notes");
-                	})
-	        	} else { // Algún campo vacío.
-	        		/* Mostrar popUp. */
-	    			var alertPopup = $ionicPopup.alert({
-	    				title: 'Error',
-	    				template: 'Existe algún campo no rellenado.'
-	    				});
-	    			alertPopup.then(function(res) {
-	    				null;
-	    			});
-	        	}
-	        }
-	 }
- })
+		} else {
+			var user = localStorage.getItem("user");
+        	if (title && body) { // Campos no vacíos.
+	        	var promise = restClient.addNote(user, $scope.title, $scope.text);
+                promise.then(function() {
+            		$location.path("/notes");
+            	})
+        	} else { // Algún campo vacío.
+        		/* Mostrar popUp. */
+    			var alertPopup = $ionicPopup.alert({
+    				title: 'Error',
+    				template: 'Existe algún campo no rellenado.'
+    				});
+    			alertPopup.then(function(res) {
+    				null;
+    			});
+        	}
+		}
+	}
+}

@@ -1,6 +1,6 @@
-<ion-view title="Nueva nota" hide-back-button="false" hide-nav-bar="true">
+<ion-view title="Nota" hide-back-button="false" hide-nav-bar="true">
 	<div class="bar bar-header bar-calm">
- 		<h1 class="title">Nueva nota</h1>
+ 		<h1 class="title">Nota</h1>
 	</div>
 	<div class="list">
 	  <label class="item item-input">
@@ -10,7 +10,7 @@
 	    <textarea ng-required="true" ng-model="body" placeholder="Texto de la nota"></textarea>
 	  </label>
 	  <label class="item item-input">
-	  	<button ng-click="add()" class="button button-block button-positive">Añadir nota</button>
+	  	<button ng-click="save()" class="button button-block button-positive">Guardar</button>
 	  </label>
 	</div>
 	<ion-nav-buttons side="right">
