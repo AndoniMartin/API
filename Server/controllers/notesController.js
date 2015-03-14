@@ -87,7 +87,10 @@ exports.updateNote=function(request,response)
 
 exports.lock=function(request,response)
 {
-	//TODO implementar
+	var b=request.body;
+	console.log(request);
+	
+	response.status(200).send(lockList.addLock(b.noteId));
 };
 
 

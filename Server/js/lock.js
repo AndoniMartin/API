@@ -18,10 +18,15 @@ function Lock(idNota){
 			return true;
 		else
 			return false;
-	};
+	}
 	
 	this.getNoteID=function()
 	{
 		return this.noteID;
-	};
+	}
+	
+	this.renew=function()
+	{
+		this.expireDate=new Date();
+	}
 }
