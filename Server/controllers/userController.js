@@ -4,7 +4,7 @@ var mongoose=require('mongoose'),
 exports.login=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	User.find({US_NAME:b.US_NAME},function(error,user){
 		if(error){
@@ -22,7 +22,7 @@ exports.login=function(request,response)
 exports.changePass=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	//Comprobar que la contraseña vieja del usuario es correcta
 	User.find({US_NAME:b.US_NAME},function(error,user){
@@ -59,7 +59,7 @@ exports.changePass=function(request,response)
 exports.singup=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	//Comprobar que no exista el usuario
 	User.find({US_NAME:b.US_NAME},function(error,user){
