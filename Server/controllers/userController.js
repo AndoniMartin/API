@@ -42,7 +42,7 @@ exports.changePass=function(request,response)
 					        if(error==null)
 					        	response.status(200).send(true);
 					        else
-					        	response.status(500).send(false);
+					        	response.status(500).send();
 					    }
 					);
 			}
@@ -69,9 +69,13 @@ exports.signup=function(request,response)
 			if(user)
 			{
 				//Añadir el usuario a la BD
-				var user = new User({ US_NAME: b.US_NAME, US_PASS: b.US_PASS, NOTES: [] });
+				new User({ US_NAME: b.US_NAME, US_PASS: b.US_PASS, NOTES: [] }).save(function(error){
+					if(error==null)
+			        	response.status(200).send(true);
+			        else
+			        	response.status(500).send();
+				});
 				
-				response.status(200).send(true);
 			}
 			else
 				response.status(200).send(false);

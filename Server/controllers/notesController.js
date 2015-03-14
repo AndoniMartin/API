@@ -8,7 +8,13 @@ exports.addNote=function(request,response)
 	console.log(b);
 	
 	//Añadir la nota
-	var nota = new Nota({ NO_Title: b.NO_Title, NO_Text: b.NO_Text, USER: b.US_Name});
+	var nota = new Nota({ NO_Title: b.NO_Title, NO_Text: b.NO_Text, USER: b.US_Name}).save(function(error){
+		//Si se actualiza
+        if(error==null)
+        	response.status(200).send(true);
+        else
+        	response.status(500).send();
+	});
 	//nota._id, id de la nota
 	
 	//El propietario tiene TY_ID de la nota = 1
@@ -28,7 +34,7 @@ exports.addNote=function(request,response)
 		        if(error==null)
 		        	response.status(200).send(true);
 		        else
-		        	response.status(500).send(false);
+		        	response.status(500).send();
 		    }
 		);
 };
@@ -78,7 +84,7 @@ exports.updateNote=function(request,response)
 		        if(error==null)
 		        	response.status(200).send(true);
 		        else
-		        	response.status(500).send(false);
+		        	response.status(500).send();
 		    }
 		);
 };
@@ -99,7 +105,7 @@ exports.deleteNote=function(request,response)
 		        if(error==null)
 		        	response.status(200).send(true);
 		        else
-		        	response.status(500).send(false);
+		        	response.status(500).send();
 		    }
 		);
 };
@@ -142,7 +148,7 @@ exports.shareNote=function(request,response)
 		        if(error==null)
 		        	response.status(200).send(true);
 		        else
-		        	response.status(500).send(false);
+		        	response.status(500).send();
 		    }
 		);
 };
@@ -164,7 +170,7 @@ exports.unshareNote=function(request,response)
 		        if(error==null)
 		        	response.status(200).send(true);
 		        else
-		        	response.status(500).send(false);
+		        	response.status(500).send();
 		    }
 		);
 };
