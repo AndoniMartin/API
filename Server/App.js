@@ -21,7 +21,6 @@ var userModel=require("./models/user.js")(app,mongoose);
 var noteModel=require("./models/note.js")(app,mongoose);
 var userController=require("./controllers/userController.js");
 var notesController=require("./controllers/notesController.js");
-var lockController = require("./controllers/lockController.js");
 
 //Router options
 var router=express.Router();
@@ -30,12 +29,23 @@ app.use(router);
 router.route('/login')
 .post(userController.login);
 
+router.route('/user')
+.post(userController.changePass);
+
 router.route('/notes/:id')
 .post(notesController.getNotes);
 
 router.route('/notes')
-.post(notes.addNote);
+.post(notesController.addNote);
 
+router.route('/notes/:id')
+.post(notesController.updateNote);
+
+router.route('/lock')
+.post(notesController.lock)
+
+router.route('/lock/:id')
+.get(notesController.renewLock)
 
 
 //Start server
