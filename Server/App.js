@@ -29,6 +29,9 @@ app.use(router);
 router.route('/login')
 .post(userController.login);
 
+router.route('/user')
+.post(userController.changePass);
+
 router.route('/notes/:id')
 .post(notesController.getNotes);
 
@@ -37,6 +40,9 @@ router.route('/notes')
 
 router.route('/lock')
 .post(notesController.lock)
+
+router.route('/lock/:id')
+.get(notesController.renewLock)
 
 
 //Start server

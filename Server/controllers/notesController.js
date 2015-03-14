@@ -57,7 +57,11 @@ exports.getNotes=function(request,response)
 
 exports.lock=function(request,response)
 {
-	
+	//TODO implementar
 };
 
 
+exports.renewLock=function(request,response)
+{
+	//TODO implementar
+};
