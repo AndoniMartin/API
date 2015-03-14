@@ -14,7 +14,7 @@ function Lock(idNota){
 	{
 		var actual = new Date();
 		
-		if(actual >= this.noteID)
+		if(actual >= this.expiredDate)
 			return true;
 		else
 			return false;

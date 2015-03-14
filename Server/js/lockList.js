@@ -12,4 +12,8 @@ function lockList(){
 		        lockList.splice(i, 1);
 		}
 	}
+	
+	this.findNoteId=function(){
+		//TODO: Cambiar esto a HASH
+	}
 }

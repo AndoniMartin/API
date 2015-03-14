@@ -13,7 +13,7 @@ angular.module('APINotack.loginController', ['ionic',])
         $scope.checkLogin=function(){
         	var user = $scope.login.user;
         	var pass = $scope.login.pass;
-        	if(user!==null & pass!==null)
+        	if(user!==null && pass!==null)
         	{
         		pass = sha512(pass);
 	        	var promise=restClient.login(user,pass);
