@@ -5,14 +5,18 @@
 	  </div>
 	  <div class="item item-text-wrap">
 	  	<label class="item item-input">
-	    	<input type="text" placeholder="Usuario"></input>
+	    	<input type="text" placeholder="Usuario" ng-model="login.user"></input>
 	    </label>
 	    <label class="item item-input">
-	    	<input type="password" placeholder="ContraseÃ±a"></input>
+	    	<input type="password" placeholder="ContraseÃ±a" ng-model="login.pass"></input>
 	    </label>
 	    <label class="item item-input">
 	    	<button ng-click(checkLogin()) class="button button-block button-positive">Login</button>
 	    </label>
+	  </div>
+	  <div class="item-text-wrap">
+	  	¿No estás registrado?
+	  	<a ui-sref="/Register">Registrarse</a>
 	  </div>
 	</div>
 </ion-view>

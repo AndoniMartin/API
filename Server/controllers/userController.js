@@ -32,7 +32,7 @@ exports.changePass=function(request,response)
 			if(user.US_PASS==b.VIEJA)
 			{
 				//Actualizar la contraseña
-				collection.findByIdAndUpdate(
+				user.findByIdAndUpdate(
 					    user._id,
 					    $set: {US_PASS: b.NUEVA},
 					    {safe: true, upsert: true},

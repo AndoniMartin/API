@@ -56,7 +56,20 @@ exports.getNotes=function(request,response)
 
 exports.updateNote=function(request,response)
 {
-	//TODO implementar
+	var b=request.body;
+	console.log(request);
+	
+	user.findByIdAndUpdate(
+		    b.NO_ID,
+		    $set: {NO_TITLE: b.NO_TITLE},
+		    $set: {NO_TEXT: b.NO_TEXT},
+		    {safe: true, upsert: true},
+		    function(err, model) {
+		        console.log(err);
+		        //Si se actualiza
+		        response.status(200).send(true);
+		    }
+		);
 };
 
 exports.lock=function(request,response)
@@ -66,6 +79,17 @@ exports.lock=function(request,response)
 
 
 exports.renewLock=function(request,response)
+{
+	//TODO implementar
+};
+
+exports.shareNote=function(request,response)
+{
+	//TODO implementar
+};
+
+
+exports.unshareNote=function(request,response)
 {
 	//TODO implementar
 };
