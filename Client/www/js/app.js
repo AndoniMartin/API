@@ -38,10 +38,15 @@ angular.module('starter', ['ionic','APINotack.loginController','APINotack.servic
   // Each state's controller can be found in controllers.js
   $stateProvider
   
-  .state('login',{
+  	 .state('login',{
 	 url: '/login',
 	 templateUrl:'templates/login.html',
 	 controller:'loginCtrl'
+	 })
+	 .state('notas',{
+	 url: '/notas',
+	 templateUrl:'templates/notas.html',
+	 controller:'notasCtrl'
 	 })
 	 .state('edition',{
 		 url('/edition/:noteId')
