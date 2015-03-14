@@ -69,7 +69,26 @@ exports.updateNote=function(request,response)
 	var b=request.body;
 	console.log(request);
 	
-	user.findByIdAndUpdate(
+	Note.findByIdAndDelete(
+		    b.NO_ID,
+		    {safe: true, upsert: true},
+		    function(error, model) {
+		        console.log(error);
+		      //Si se borra
+		        if(error==null)
+		        	response.status(200).send(true);
+		        else
+		        	response.status(500).send(false);
+		    }
+		);
+};
+
+exports.deleteNote=function(request,response)
+{
+	var b=request.body;
+	console.log(request);
+	
+	Note.findByI(
 		    b.NO_ID,
 		    $set: {NO_TITLE: b.NO_TITLE},
 		    $set: {NO_TEXT: b.NO_TEXT},
