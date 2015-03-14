@@ -7,7 +7,6 @@ angular.module('APINotack.configController', ['ionic'])
         	var repPass = $scope.reppass;
         	
 	        	if (oldPass !== undefined && newPass !== undefined && repPass !== undefined) { // Campos no vacíos.
-	        		console.log(2);
 	        		if (newPass == repPass) { // Los campos de la nueva contraseña coinciden.
 		        		
 	        			oldPass = sha512(oldPass);

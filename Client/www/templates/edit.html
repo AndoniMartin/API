@@ -1,21 +1,18 @@
-<ion-view title="Notas" hide-back-button="false" hide-nav-bar="true">
-	<div class="bar bar-header bar-calm">
- 		<h1 class="title">Edición</h1>
-	</div>
-	<ion-nav-buttons side="right">
-	    <a class="button button-icon icon ion-gear-b" ui-sref="/configuration"></a>
-	</ion-nav-buttons>
-	<label class="item item-input">
-  		<span class="input-label">[[node.title]]</span>
-  		<input type="text">
-	</label>
-	<label class="item item-input">
-  		<span class="input-label">[[node.text]]</span>
-  		<input type="text">
-	</label>
-	<div class="bar bar-footer bar-balanced">
- 		<div class="buttons">
-    		<button class="button" ngClick="save(id, title, text)">Left Button</button>
-  		</div>
+<ion-view title="Editar nota">
+	<div class="card">
+	  <div class="item item-divider">
+	    Guardar nota
+	  </div>
+	  <div class="item item-text-wrap">
+	  	<label class="item item-input">
+	    	<input type="text" placeholder="{{node.title}}"></input>
+	    </label>
+	    <label class="item item-input">
+	    <textarea>{{node.text}}</textarea>
+	  </label>
+	  <label class="item item-input">
+	  	<button ng-click="save(id, title, text)" class="button button-block button-positive">Guardar nota</button>
+	  </label>
+	  </div>
 	</div>
 </ion-view>

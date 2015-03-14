@@ -12,7 +12,7 @@ angular.module('APINotack.services',[])
 		var request=new Object();
 		
 		request.US_NAME=US_NAME;
-		request.US_PASS=sha512(US_PASS);
+		request.US_PASS=US_PASS;
 
 		var promise=$http.post(direccion+'/login',request).success(function(validation){
 			return(validation);
@@ -40,7 +40,7 @@ angular.module('APINotack.services',[])
 		var request=new Object();
 		
 		request.US_NAME=US_NAME;
-		request.US_PASS=sha512(US_PASS);
+		request.US_PASS=US_PASS;
 
 		var promise=$http.post(direccion+'/signup',request).success(function(validation){
 			return(validation);
@@ -114,11 +114,11 @@ angular.module('APINotack.services',[])
 		return(promise);
 	}
 	
-	this.changePass=function(US_ID,VIEJA,NUEVA)
+	this.changePass=function(US_NAME,VIEJA,NUEVA)
 	{
 		var request=new Object();
 		
-		request.US_ID=US_ID;
+		request.US_NAME=US_NAME;
 		request.VIEJA=VIEJA;
 		request.NUEVA=NUEVA;
 

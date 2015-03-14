@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic','APINotack.loginController','APINotack.services','APINotack.configController','APINotack.signupController','APINotack.addController','APINotack.notesController','APINotack.editController'])
+angular.module('starter', ['ionic','APINotack.loginController','APINotack.services','APINotack.configController','APINotack.signupController','APINotack.noteController','APINotack.notesController','APINotack.shareController'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -48,15 +48,15 @@ angular.module('starter', ['ionic','APINotack.loginController','APINotack.servic
 	 templateUrl:'templates/notes.html',
 	 controller:'notesCtrl'
 	 })
-	 .state('edit',{
-		 url:'/edit/:noteId',
-		 templateUrl:'templates/edit.html',
-		 controller:'editCtrl'
+	 .state('note',{
+		 url:'/note/:noteId',
+		 templateUrl:'templates/note.html',
+		 controller:'noteCtrl'
 	 })
-	 .state('add',{
-		 url:'/add',
-		 templateUrl:'templates/add.html',
-		 controller:'addCtrl'
+	 .state('share',{
+		 url:'/share/:noteId',
+		 templateUrl:'templates/share.html',
+		 controller:'shareCtrl'
 	 })
 	 .state('configuration',{
 		 url:'/configuration',

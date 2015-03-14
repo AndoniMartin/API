@@ -2,12 +2,7 @@ angular.module('APINotack.notesController', ['ionic'])
  .controller('notesCtrl', function ($scope, $ionicPopup, $location, restClient) {
 	 
 	 if(localStorage.getItem("user"))
-		 {
-		 	 $scope.edit=function(note)
-		 	 {
-		 		$location.path("/edit/"+note.id);
-		 	 }
-		 	 
+		 {	 	 
 		 	 $scope.del=function(note)
 		 	 {
 		 		var promise=restClient.deleteNote(note.title);
@@ -20,11 +15,10 @@ angular.module('APINotack.notesController', ['ionic'])
    				     ;
    				   });
             	});
-		 	 }
-		 	 
-		 	 $scope.share=function(note)
-		 	 {
-		 		$location.path("/share/"+note.id);
-		 	 }
+		 	 }	 	 
 		 }
+	 else
+	 {
+		 $location.path("/login");
+	 }
  })
