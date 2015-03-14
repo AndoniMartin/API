@@ -67,7 +67,7 @@ exports.signup=function(request,response)
 		if(error){
 			response.status(500).send();
 		}else{
-			if(user==null)
+			if(user===null)
 			{
 				//Añadir el usuario a la BD
 				new User({ US_NAME: b.US_NAME, US_PASS: b.US_PASS, NOTES: [] }).save(function(error){
