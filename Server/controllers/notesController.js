@@ -82,3 +82,14 @@ exports.renewLock=function(request,response)
 {
 	//TODO implementar
 };
+
+exports.shareNote=function(request,response)
+{
+	//TODO implementar
+};
+
+
+exports.unshareNote=function(request,response)
+{
+	//TODO implementar
+};

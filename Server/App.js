@@ -42,11 +42,16 @@ router.route('/notes/:id')
 .post(notesController.updateNote);
 
 router.route('/lock')
-.post(notesController.lock)
+.post(notesController.lock);
 
 router.route('/lock/:id')
-.get(notesController.renewLock)
+.get(notesController.renewLock);
 
+router.route('/notes/share/:id')
+.post(notesController.shareNote);
+
+router.route('/notes/unshare/:id')
+.get(notesController.unshareNote);
 
 //Start server
 app.listen(3000, function() {
