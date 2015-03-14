@@ -18,14 +18,14 @@ app.use(methodOverride());
 
 //Import models and controllers
 var userModel=require("./models/user.js")(app,mongoose);
-var messagesController=require("./controllers/messages.js");
+var loginController=require("./controllers/loginController.js");
 
 //Router options
 var router=express.Router();
 app.use(router);
 
-router.route('/stores')
-.post(storesController.getNearestStores);
+router.route('/login')
+.post(loginController.login);
 
 
 
