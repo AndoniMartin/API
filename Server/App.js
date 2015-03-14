@@ -18,9 +18,9 @@ app.use(methodOverride());
 
 //Importación archivos extras
 require("./js/lock.js");
-require("./js/lockList.js");
+//require("./js/lockList.js");
 require("./js/lockListManager.js");
-require("./js/lockKiller.js");
+//require("./js/lockKiller.js");
 
 //Import models and controllers
 var userModel=require("./models/user.js")(app,mongoose);
