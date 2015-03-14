@@ -2,11 +2,17 @@ var mongoose=require('mongoose'),
 	Note=mongoose.model('Note'),
 	User=mongoose.model('User'),
 
-exports.getNotes=function(request,response)
+exports.addNote=function(request,response)
 {
 	var b=request.body;
 	console.log(request);
 	
+	//Añadir la nota
+	var nota = new Nota({ NO_Title: b.NO_Title, NO_Text: b.NO_Text });
+	//nota._id, id de la nota
+	
+	
+	//Asociar la nota al usuario
 	User.find({US_NAME:b.US_NAME},function(error,user){
 		if(error){
 			response.status(500).send();
@@ -23,6 +29,9 @@ exports.getNotes=function(request,response)
 				//Devolver el array de notas en JSON
 				//TODO terminar el envio de objetos
 				response.status(200).send(???);
+			else
+				response.status(200).send(false);
+				
 		}
 	});
 };

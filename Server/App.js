@@ -20,7 +20,8 @@ app.use(methodOverride());
 var userModel=require("./models/user.js")(app,mongoose);
 var noteModel=require("./models/note.js")(app,mongoose);
 var loginController=require("./controllers/loginController.js");
-var getNotesControllers=require("./controllers/getNotesController.js");
+var getNotesController=require("./controllers/getNotesController.js");
+var addNoteController =require("./controllers/addNoteController.js");
 
 //Router options
 var router=express.Router();
@@ -29,8 +30,11 @@ app.use(router);
 router.route('/login')
 .post(loginController.login);
 
-router.route('/getNotes')
-.post(getNotesControllers.getNotes);
+router.route('/notes/:id')
+.post(getNotesController.getNotes);
+
+router.route('/notes')
+.post(addNoteController.addNote);
 
 
 
