@@ -2,7 +2,7 @@ function lockList(){
 	this.lockList=[];
 	
 	this.addLock=function(noteId){
-		this.lockList.push(new lock(noteId));
+		this.lockList.push(new Lock(noteId));
 	};
 	
 	this.removeExpiredLocks=function()
