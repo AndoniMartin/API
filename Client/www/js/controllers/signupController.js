@@ -1,8 +1,7 @@
 angular.module('APINotack.signupController', ['ionic'])
- .controller('configCtrl', function ($scope, $ionicPopup, $location, restClient) {
+ .controller('signupCtrl', function ($scope, $ionicPopup, $location, restClient) {
 
         $scope.signup=function() {
-        	/* Comprobaciones de las contraseñas. */
         	var name = signup.user;
         	var pass = signup.pass;
         	var repPass = signup.reppass;
