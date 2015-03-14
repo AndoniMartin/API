@@ -1,5 +1,6 @@
 var mongoose=require('mongoose'),
-	Modelo=mongoose.model('Note'),
+	Note=mongoose.model('Note'),
+	User=mongoose.model('User'),
 
 exports.login=function(request,response)
 {
@@ -11,7 +12,17 @@ exports.login=function(request,response)
 			response.status(500).send();
 		}else{
 			if(user.US_PASS==b.US_PASS)
-				response.status(200).send(true);
+				//recorrer las notas del usuario y devolver el contenido de todas
+				
+				var notas = [];
+			
+				for nota in user.NOTES{
+					notas.push(Note.find({NO_ID:nota.NO_ID}));
+				}
+				
+				//Devolver el array de notas en JSON
+				//TODO terminar el envio de objetos
+				response.status(200).send(???);
 			else
 				response.status(200).send(false);
 				
