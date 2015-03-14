@@ -71,7 +71,7 @@ angular.module('APINotack.services',[])
 		request.NO_TITLE=NO_TITLE;
 		request.NO_TEXT=NO_TEXT;
 
-		var promise=$http.post(direccion+'/notes/'+ NO_ID,request).success(function(validation){
+		var promise=$http.post(direccion+'/notes/update',request).success(function(validation){
 			return(validation);
 		});
 

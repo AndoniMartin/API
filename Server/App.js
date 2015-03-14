@@ -47,8 +47,11 @@ router.route('/notes/:id')
 router.route('/notes')
 .post(notesController.addNote);
 
-router.route('/notes/:id')
+router.route('/notes/update')
 .post(notesController.updateNote);
+
+router.route('/notes/delete')
+.post(notesController.deleteNote);
 
 router.route('/lock')
 .post(notesController.lock);

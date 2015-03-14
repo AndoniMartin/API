@@ -1,3 +1,25 @@
 <div class="list card">
-	<note ng-repeat="note in notesListService.getNotes()"></note>
+	<note ng-repeat="note in notesListService.getNotes()">
+		<div class="card">
+  			<div class="item item-divider">
+				[[note.title]]
+			</div>
+			<div class="item item-text-wrap">
+				[[note.text]]
+			</div>
+			<div class="item item-divider" ng-Click="edit(note)">
+				<button class="button">
+					<i class="icon ion-edit"></i>
+				</button>
+				<button class="button" ng-Click="del(note)">
+					<i class="icon ion-trash-b"></i>
+				</button>
+				<button class="button" ng-Click="share(note)">
+					<i class="icon ion-android-share-alt"></i>
+				</button>
+				<a>[[note.user]]</a>
+			</div>
+		</div>	
+	</note>
+	
 </div>
