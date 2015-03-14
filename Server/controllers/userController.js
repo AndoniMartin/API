@@ -18,3 +18,8 @@ exports.login=function(request,response)
 		}
 	});
 };
+
+exports.changePass=function(request,response)
+{
+	//TODO implementar
+};
