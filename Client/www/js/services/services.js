@@ -78,6 +78,19 @@ angular.module('APINotack.services',[])
 		return(promise);
 	}
 	
+	this.deleteNote=function(NO_ID)
+	{
+		var request=new Object();
+		
+		request.NO_ID=NO_ID;
+
+		var promise=$http.post(direccion+'/notes/delete',request).success(function(validation){
+			return(validation);
+		});
+
+		return(promise);
+	}
+	
 	this.lock=function(NO_ID)
 	{
 		var request=new Object();
