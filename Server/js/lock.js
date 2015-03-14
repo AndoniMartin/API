@@ -6,4 +6,22 @@
 	
 */
 
-//TODO: todo
+function Lock(idNota){
+	this.noteID = idNota;
+	this.expireDate = new Date();
+	
+	this.isExpired = function()
+	{
+		var actual = new Date();
+		
+		if(actual >= this.noteID)
+			return true;
+		else
+			return false;
+	};
+	
+	this.getNoteID=function()
+	{
+		return this.noteID;
+	};
+}
