@@ -1,6 +1,6 @@
 var mongoose=require('mongoose'),
 	Note=mongoose.model('Note'),
-	User=mongoose.model('User'),
+	User=mongoose.model('User');
 
 exports.addNote=function(request,response)
 {
@@ -49,7 +49,7 @@ exports.getNotes=function(request,response)
 				
 				var notas = [];
 			
-				for nota in user.NOTES{
+				for(nota in user.NOTES){
 					notas.push(Note.find({NO_ID:nota.NO_ID}));
 				}
 				
@@ -90,8 +90,8 @@ exports.deleteNote=function(request,response)
 	
 	Note.findByI(
 		    b.NO_ID,
-		    $set: {NO_TITLE: b.NO_TITLE},
-		    $set: {NO_TEXT: b.NO_TEXT},
+		    {$set: {NO_TITLE: b.NO_TITLE},
+		    $set: {NO_TEXT: b.NO_TEXT}},
 		    {safe: true, upsert: true},
 		    function(error, model) {
 		        console.log(error);

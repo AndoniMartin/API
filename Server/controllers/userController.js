@@ -1,5 +1,5 @@
 var mongoose=require('mongoose'),
-	User=mongoose.model('User'),
+	User=mongoose.model('User');
 
 exports.login=function(request,response)
 {
@@ -33,8 +33,8 @@ exports.changePass=function(request,response)
 			{
 				//Actualizar la contraseña
 				user.findByIdAndUpdate(
-					    user._id,
-					    $set: {US_PASS: b.NUEVA},
+						user._id,
+					    {$set: {US_PASS: b.NUEVA}},
 					    {safe: true, upsert: true},
 					    function(error, model) {
 					        console.log(error);

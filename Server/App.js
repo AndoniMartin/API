@@ -6,7 +6,7 @@ mongoose = require('mongoose');
 
 
 // Connection to DB
-mongoose.connect('mongodb://localhost/NOMBREBASEDATOS', function(err, res) {
+mongoose.connect('mongodb://localhost/APINOTACK', function(err, res) {
 if(err) throw err;
 console.log('Connected to Database');
 });
