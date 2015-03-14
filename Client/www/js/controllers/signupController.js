@@ -2,9 +2,9 @@ angular.module('APINotack.signupController', ['ionic'])
  .controller('signupCtrl', function ($scope, $ionicPopup, $location, restClient) {
 
         $scope.signup=function() {
-        	var name = signup.user;
-        	var pass = signup.pass;
-        	var repPass = signup.reppass;
+        	var name = $scope.user;
+        	var pass = $scope.pass;
+        	var repPass = $scope.reppass;
         	
         	//if (!localStorage.getItem("user")) { // Usuario no logueado.
 	        	if (name !== null && pass !== null && repPass != null) { // Campos no vacíos.

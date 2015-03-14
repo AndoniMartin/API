@@ -2,8 +2,8 @@ angular.module('APINotack.addController', ['ionic'])
  .controller('addCtrl', function ($scope, $ionicPopup, $location, restClient) {
 
         $scope.add=function() {
-        	var title = add.title;
-        	var body = add.body;
+        	var title = $scope.title;
+        	var body = $scope.body;
         	var user = localStorage.getItem("user");
         	if (user) { // Usuario logueado.
 	        	if (title && body) { // Campos no vacíos.
