@@ -56,7 +56,7 @@ exports.changePass=function(request,response)
 	});
 };
 
-exports.singup=function(request,response)
+exports.signup=function(request,response)
 {
 	var b=request.body;
 	console.log(b);
