@@ -5,10 +5,10 @@
 	  </div>
 	  <div class="item item-text-wrap">
 	  	<label class="item item-input">
-	    	<input type="text" placeholder="Usuario"></input>
+	    	<input type="text" placeholder="Usuario" ng-model="login.user"></input>
 	    </label>
 	    <label class="item item-input">
-	    	<input type="password" placeholder="Contraseña"></input>
+	    	<input type="password" placeholder="Contraseña" ng-model="login.pass"></input>
 	    </label>
 	    <label class="item item-input">
 	    	<button ng-click(checkLogin()) class="button button-block button-positive">Login</button>
