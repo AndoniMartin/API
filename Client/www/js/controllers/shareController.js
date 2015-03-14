@@ -1,5 +1,5 @@
-angular.module('APINotack.loginController', ['ionic'])
- .controller('loginCtrl', function ($scope,$location,$ionicPopup,restClient) {
+angular.module('APINotack.shareController', ['ionic'])
+ .controller('shareCtrl', function ($scope,$location,$ionicPopup,restClient) {
 	 
 	 if(localStorage.getItem("user"))
 	 {
@@ -9,4 +9,4 @@ angular.module('APINotack.loginController', ['ionic'])
 	 {
 		 $location.path("/login");
    	 }
- }
+ })
