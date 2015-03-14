@@ -3,8 +3,8 @@ angular.module('APINotack.services',[])
 .service('restClient',function($http){
 	
 	//url para la conexion al servidor
-	var direccion = 'http://localhost:3000';
-	//var direccion = 'http://david-net.softether.net:3000';
+	var direccion = 'http://localhost:3000';//debug
+	//var direccion = 'http://david-net.softether.net:3000';//producción
 	
 	this.login=function(US_NAME,US_PASS)
 	{
