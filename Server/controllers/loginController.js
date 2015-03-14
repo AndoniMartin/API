@@ -1,5 +1,5 @@
 var mongoose=require('mongoose'),
-	Modelo=mongoose.model('Modelo'),
+	User=mongoose.model('User'),
 
 exports.login=function(request,response)
 {

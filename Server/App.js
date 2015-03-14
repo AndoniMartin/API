@@ -18,7 +18,10 @@ app.use(methodOverride());
 
 //Import models and controllers
 var userModel=require("./models/user.js")(app,mongoose);
+var noteModel=require("./models/note.js")(app,mongoose);
 var loginController=require("./controllers/loginController.js");
+var getNotesController=require("./controllers/getNotesController.js");
+var addNoteController =require("./controllers/addNoteController.js");
 
 //Router options
 var router=express.Router();
@@ -26,6 +29,12 @@ app.use(router);
 
 router.route('/login')
 .post(loginController.login);
+
+router.route('/notes/:id')
+.post(getNotesController.getNotes);
+
+router.route('/notes')
+.post(addNoteController.addNote);
 
 
 
