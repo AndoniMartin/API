@@ -1,0 +1,19 @@
+<ion-view title="Nueva nota" hide-back-button="false" hide-nav-bar="true">
+	<div class="bar bar-header bar-calm">
+ 		<h1 class="title">Nueva nota</h1>
+	</div>
+	<div class="list">
+	  <label class="item item-input">
+	    <input ng-required="true" ng-model="add.title" type="text" placeholder="Título">
+	  </label>
+	  <label class="item item-input">
+	    <textarea ng-required="true" ng-model="add.body" placeholder="Texto de la nota"></textarea>
+	  </label>
+	  <label class="item item-input">
+	  	<button ng-click(add()) class="button button-block button-positive">Añadir nota</button>
+	  </label>
+	</div>
+	<ion-nav-buttons side="right">
+	    <a class="button button-icon icon ion-gear-b" ui-sref="configuration"></a>
+	</ion-nav-buttons>
+</ion-view>

@@ -55,3 +55,27 @@ exports.changePass=function(request,response)
 		}
 	});
 };
+
+exports.singup=function(request,response)
+{
+	var b=request.body;
+	console.log(request);
+	
+	//Comprobar que no exista el usuario
+	User.find({US_NAME:b.US_NAME},function(error,user){
+		if(error){
+			response.status(500).send();
+		}else{
+			if(user)
+			{
+				//Añadir el usuario a la BD
+				var user = new User({ US_NAME: b.US_NAME, US_PASS: b.US_PASS, NOTES: [] });
+				
+				response.status(200).send(true);
+			}
+			else
+				response.status(200).send(false);
+				
+		}
+	});
+};

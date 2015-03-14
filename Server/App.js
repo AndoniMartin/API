@@ -16,6 +16,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
+//Importación archivos extras
+require("./js/lock.js");
+require("./js/lockList.js");
+require("./js/lockKiller.js");
+require("./js/lockListManager.js");
+
 //Import models and controllers
 var userModel=require("./models/user.js")(app,mongoose);
 var noteModel=require("./models/note.js")(app,mongoose);
@@ -28,6 +34,9 @@ app.use(router);
 
 router.route('/login')
 .post(userController.login);
+
+router.route('/singup')
+.post(userController.singup);
 
 router.route('/user')
 .post(userController.changePass);
