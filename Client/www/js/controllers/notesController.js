@@ -1,4 +1,4 @@
-angular.module('APINotack.notasController', ['ionic'])
+angular.module('APINotack.notesController', ['ionic'])
  .controller('notesCtrl', function ($scope, $ionicPopup, $location, restClient) {
 	 
 	 if(localStorage.getItem("user"))
