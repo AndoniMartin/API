@@ -49,7 +49,9 @@ angular.module('starter', ['ionic','APINotack.loginController','APINotack.servic
 	 controller:'notesCtrl'
 	 })
 	 .state('edit',{
-		 url:'/edition/:noteId'
+		 url:'/edit/:noteId',
+		 templateUrl:'templates/edit.html',
+		 controller:'editCtrl'
 	 })
 	 .state('add',{
 		 url:'/add',
