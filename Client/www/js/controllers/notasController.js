@@ -1,5 +1,5 @@
 angular.module('APINotack.notasController', ['ionic'])
- .controller('configCtrl', function ($scope, $ionicPopup, $location, restClient) {
+ .controller('notesCtrl', function ($scope, $ionicPopup, $location, restClient) {
 	 
 	 if(localStorage.getItem("user"))
 		 {
