@@ -1,7 +1,7 @@
 angular.module('APINotack.addController', ['ionic'])
  .controller('addCtrl', function ($scope, $ionicPopup, $location, restClient) {
 
-        $scope.signup=function() {
+        $scope.add=function() {
         	var title = add.title;
         	var body = add.body;
         	var user = localStorage.getItem("user");
