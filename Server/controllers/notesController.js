@@ -8,7 +8,7 @@ exports.addNote=function(request,response)
 	console.log(request);
 	
 	//Añadir la nota
-	var nota = new Nota({ NO_Title: b.NO_Title, NO_Text: b.NO_Text });
+	var nota = new Nota({ NO_Title: b.NO_Title, NO_Text: b.NO_Text, USER: b.US_Name});
 	//nota._id, id de la nota
 	
 	//El propietario tiene TY_ID de la nota = 1
