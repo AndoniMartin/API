@@ -7,7 +7,7 @@ angular.module('APINotack.signupController', ['ionic'])
         	var repPass = $scope.reppass;
         	
         	//if (!localStorage.getItem("user")) { // Usuario no logueado.
-	        	if (name !== null && pass !== null && repPass != null) { // Campos no vacíos.
+	        	if (name !== undefined && pass !== undefined && repPass !== undefined) { // Campos no vacíos.
 	        		pass = sha512(pass);
 	        		repPass = sha512(repPass);
 	        		if (pass == repPass) { // Los campos de la nueva contraseña coinciden.

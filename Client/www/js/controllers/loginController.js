@@ -1,5 +1,5 @@
 
-angular.module('APINotack.loginController', ['ionic',])
+angular.module('APINotack.loginController', ['ionic'])
  .controller('loginCtrl', function ($scope,$location,$ionicPopup,restClient) {
 
 	 var oldUsr = JSON.parse(localStorage.getItem("user"));
@@ -7,9 +7,10 @@ angular.module('APINotack.loginController', ['ionic',])
 		$location.path("/notes");
 		 
         $scope.checkLogin=function(){
-        	var user = $scope.user;
-        	var pass = $scope.pass;
-        	if(user!==null && pass!==null)
+        	var user = $scope.user===undefined?null:$scope.user;
+        	var pass = $scope.pass===undefined?null:$scope.pass;
+        	
+        	if(user && pass)
         	{
         		pass = sha512(pass);
 	        	var promise=restClient.login(user,pass);
