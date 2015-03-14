@@ -85,11 +85,43 @@ exports.renewLock=function(request,response)
 
 exports.shareNote=function(request,response)
 {
-	//TODO implementar
+	var b=request.body;
+	console.log(request);
+	
+	//Se comparte la nota según el tipo especificado (lectura/escritura)
+	var entrada = {
+			NO_ID: b.NO_ID,
+			TY_ID: b.TIPO
+	}
+	//Asociar la nota al usuario
+	User.findOneAndUpdate(
+		    {US_Name: b.US_Name},
+		    {$push: {Notes: entrada}},
+		    {safe: true, upsert: true},
+		    function(err, model) {
+		        console.log(err);
+		    }
+		);
 };
 
 
 exports.unshareNote=function(request,response)
 {
-	//TODO implementar
+	var b=request.body;
+	console.log(request);
+	
+	//Desasociar la nota al usuario
+	User.update(
+		    {US_Name: b.US_Name},
+		    {$pull: {NOTES: {NO_ID: b.NO_ID}}},
+		    {safe: true, upsert: true},
+		    function(err, model) {
+		        console.log(err);
+		    }
+		);
+	
+	collection.update(
+			  { _id: id },
+			  { $pull: { 'contact.phone': { number: '+1786543589455' } } }
+			);
 };
