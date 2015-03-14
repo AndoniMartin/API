@@ -6,7 +6,7 @@ angular.module('APINotack.services',[])
 		var request=new Object();
 		
 		request.US_NAME=US_NAME;
-		request.US_PASS=hash(US_PASS);
+		request.US_PASS=sha512(US_PASS);
 
 		var promise=$http.post('http://localhost:3000/login',request).success(function(validation){
 			return(validation);
