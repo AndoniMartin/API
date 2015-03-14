@@ -54,6 +54,10 @@ exports.getNotes=function(request,response)
 	});
 };
 
+exports.updateNote=function(request,response)
+{
+	//TODO implementar
+};
 
 exports.lock=function(request,response)
 {

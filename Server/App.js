@@ -38,6 +38,9 @@ router.route('/notes/:id')
 router.route('/notes')
 .post(notesController.addNote);
 
+router.route('/notes/:id')
+.post(notesController.updateNote);
+
 router.route('/lock')
 .post(notesController.lock)
 
