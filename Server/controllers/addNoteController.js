@@ -11,27 +11,19 @@ exports.addNote=function(request,response)
 	var nota = new Nota({ NO_Title: b.NO_Title, NO_Text: b.NO_Text });
 	//nota._id, id de la nota
 	
+	//El propietario tiene TY_ID de la nota = 1
+	var entrada = {
+			NO_ID: nota._id,
+			TY_ID: 1
+	}
 	
 	//Asociar la nota al usuario
-	User.find({US_NAME:b.US_NAME},function(error,user){
-		if(error){
-			response.status(500).send();
-		}else{
-			if(user.US_PASS==b.US_PASS)
-				//recorrer las notas del usuario y devolver el contenido de todas
-				
-				var notas = [];
-			
-				for nota in user.NOTES{
-					notas.push(Note.find({NO_ID:nota.NO_ID}));
-				}
-				
-				//Devolver el array de notas en JSON
-				//TODO terminar el envio de objetos
-				response.status(200).send(???);
-			else
-				response.status(200).send(false);
-				
-		}
-	});
+	User.findOneAndUpdate(
+		    {US_Name: b.US_Name},
+		    {$push: {Notes: entrada}},
+		    {safe: true, upsert: true},
+		    function(err, model) {
+		        console.log(err);
+		    }
+		);
 };
