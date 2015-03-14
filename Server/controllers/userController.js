@@ -6,7 +6,8 @@ exports.login=function(request,response)
 	var b=request.body;
 	console.log(b);
 	
-	User.find({US_NAME:b.US_NAME},function(error,user){
+	User.findOne({US_NAME:b.US_NAME},function(error,user){
+		//console.log(user.US_PASS);
 		if(error){
 			response.status(500).send();
 		}else{
@@ -62,11 +63,11 @@ exports.signup=function(request,response)
 	console.log(b);
 	
 	//Comprobar que no exista el usuario
-	User.find({US_NAME:b.US_NAME},function(error,user){
+	User.findOne({US_NAME:b.US_NAME},function(error,user){
 		if(error){
 			response.status(500).send();
 		}else{
-			if(user)
+			if(user==null)
 			{
 				//Añadir el usuario a la BD
 				new User({ US_NAME: b.US_NAME, US_PASS: b.US_PASS, NOTES: [] }).save(function(error){

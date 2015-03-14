@@ -45,7 +45,7 @@ exports.getNotes=function(request,response)
 	var b=request.body;
 	console.log(b);
 	
-	User.find({US_NAME:b.US_NAME},function(error,user){
+	User.findOne({US_NAME:b.US_NAME},function(error,user){
 		if(error){
 			response.status(500).send();
 		}else{
@@ -94,7 +94,7 @@ exports.deleteNote=function(request,response)
 	var b=request.body;
 	console.log(b);
 	
-	Note.findByI(
+	Note.findById(
 		    b.NO_ID,
 		    {$set: {NO_TITLE: b.NO_TITLE},
 		    $set: {NO_TEXT: b.NO_TEXT}},
