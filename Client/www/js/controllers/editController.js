@@ -1,4 +1,4 @@
-angular.module('APINotack.addController', ['ionic'])
+angular.module('APINotack.editController', ['ionic'])
  .controller('editCtrl', function ($scope, $ionicPopup, $location, restClient) {
 	 
 	 if(localStorage.getItem("user"))
@@ -13,8 +13,8 @@ angular.module('APINotack.addController', ['ionic'])
    				   });
    				 alertPopup.then(function(res) {
    				     ;
-   				 });
-			 }
+   				 })
+			 })
 		 }
 	 }
- }
+ })

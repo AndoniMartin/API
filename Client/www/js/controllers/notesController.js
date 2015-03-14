@@ -19,7 +19,7 @@ angular.module('APINotack.notesController', ['ionic'])
    				   alertPopup.then(function(res) {
    				     ;
    				   });
-            	}
+            	});
 		 	 }
 		 	 
 		 	 $scope.share=function(note)
@@ -27,4 +27,4 @@ angular.module('APINotack.notesController', ['ionic'])
 		 		$location.path("/share/"+note.id);
 		 	 }
 		 }
- }
+ })
