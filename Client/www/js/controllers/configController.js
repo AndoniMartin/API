@@ -7,44 +7,35 @@ angular.module('APINotack.configController', ['ionic'])
         	var newPass = config.newpass;
         	var repPass = config.reppass;
         	
-        	//if (localStorage.getItem("user")) { // Usuario logueado.
-	        	if (oldPass !== null && newPass !== null && repPass != null) { // Campos no vacíos.
-	        		newPass = sha512(newPass);
-	        		repPass = sha512(repPass);
+	        	if (oldPass && newPass && repPass) { // Campos no vacíos.
 	        		if (newPass == repPass) { // Los campos de la nueva contraseña coinciden.
-		        		/* Comprobar en local Storage la contraseña actual. */
-		        		oldPass = sha512(oldPass);
-		        		var savedPass = JSON.parse(localStorage.getItem("user")).pass;
-		        		if (oldPass == savedPass) {
-		        			var username = JSON.parse(localStorage.getItem("user")).name;
-		        			/* Llamando al server. */
-		                	var promise=restClient.changePass(username, oldPass, newPass);
-		                	promise.then(function(updated) {
+		        		
+	        			oldPass = sha512(oldPass);
+		        		var user = JSON.parse(localStorage.getItem("user"));
+		        		
+		        		if (oldPass === user.pass) {
+		                	restClient.changePass(user.name, oldPass, sha512(newPass)).
+		                	then(function(updated) {
 		                		if (updated) {
-		                			/* Guardar el usuario en el local storage. */
-		                			var user = new Object();
-		                			user.name = username;
-		                			user.pass = newPass;
-		                			user.logged = logged;
+		                			user.pass=newPass;
 		                			localStorage.setItem("user", JSON.stringify(user));
 		                			
-		                			/* Mostrar popUp. */
-		                			var alertPopup = $ionicPopup.alert({
+		                			$ionicPopup.alert({
 		                				title: 'Contraseña actualizada',
 		                				template: 'La contraseña ha sido correctamente actualizada.'
-		                				});
-		                			alertPopup.then(function(res) {
-		                				null;
-		                			});
+		                				}).then(function(res) {
+		                					null;
+		                				}
+		                			);
 		                		} else {
 		                			/* Mostrar popUp. */
-		                			var alertPopup = $ionicPopup.alert({
+		                			$ionicPopup.alert({
 		                				title: 'Error',
 		                				template: 'No se ha podido actualizar la contraseña.'
+		                				}).
+		                				then(function(res){
+		                					null;
 		                				});
-		                			alertPopup.then(function(res) {
-		                				null;
-		                			});
 		                		}
 		                	})
 		        		} else { // Contraseña antigua no coincide.
