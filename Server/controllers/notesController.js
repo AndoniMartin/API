@@ -22,8 +22,13 @@ exports.addNote=function(request,response)
 		    {US_Name: b.US_Name},
 		    {$push: {Notes: entrada}},
 		    {safe: true, upsert: true},
-		    function(err, model) {
-		        console.log(err);
+		    function(error, model) {
+		        console.log(error);
+		      //Si se actualiza
+		        if(error==null)
+		        	response.status(200).send(true);
+		        else
+		        	response.status(500).send(false);
 		    }
 		);
 };
@@ -39,6 +44,7 @@ exports.getNotes=function(request,response)
 			response.status(500).send();
 		}else{
 			if(user.US_PASS==b.US_PASS)
+			{
 				//recorrer las notas del usuario y devolver el contenido de todas
 				
 				var notas = [];
@@ -48,8 +54,12 @@ exports.getNotes=function(request,response)
 				}
 				
 				//Devolver el array de notas en JSON
-				//TODO terminar el envio de objetos
 				response.status(200).send(notas);
+			}
+			else
+			{
+				response.status(200).send(false);
+			}
 		}
 	});
 };
@@ -64,10 +74,13 @@ exports.updateNote=function(request,response)
 		    $set: {NO_TITLE: b.NO_TITLE},
 		    $set: {NO_TEXT: b.NO_TEXT},
 		    {safe: true, upsert: true},
-		    function(err, model) {
-		        console.log(err);
-		        //Si se actualiza
-		        response.status(200).send(true);
+		    function(error, model) {
+		        console.log(error);
+		      //Si se actualiza
+		        if(error==null)
+		        	response.status(200).send(true);
+		        else
+		        	response.status(500).send(false);
 		    }
 		);
 };
@@ -98,8 +111,13 @@ exports.shareNote=function(request,response)
 		    {US_Name: b.US_Name},
 		    {$push: {Notes: entrada}},
 		    {safe: true, upsert: true},
-		    function(err, model) {
-		        console.log(err);
+		    function(error, model) {
+		        console.log(error);
+		      //Si se actualiza
+		        if(error==null)
+		        	response.status(200).send(true);
+		        else
+		        	response.status(500).send(false);
 		    }
 		);
 };
@@ -115,13 +133,13 @@ exports.unshareNote=function(request,response)
 		    {US_Name: b.US_Name},
 		    {$pull: {NOTES: {NO_ID: b.NO_ID}}},
 		    {safe: true, upsert: true},
-		    function(err, model) {
-		        console.log(err);
+		    function(error, model) {
+		        console.log(error);
+		      //Si se actualiza
+		        if(error==null)
+		        	response.status(200).send(true);
+		        else
+		        	response.status(500).send(false);
 		    }
 		);
-	
-	collection.update(
-			  { _id: id },
-			  { $pull: { 'contact.phone': { number: '+1786543589455' } } }
-			);
 };

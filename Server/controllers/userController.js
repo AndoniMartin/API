@@ -36,17 +36,20 @@ exports.changePass=function(request,response)
 					    user._id,
 					    $set: {US_PASS: b.NUEVA},
 					    {safe: true, upsert: true},
-					    function(err, model) {
-					        console.log(err);
+					    function(error, model) {
+					        console.log(error);
 					        //Si se actualiza
-					        response.status(200).send(true);
+					        if(error==null)
+					        	response.status(200).send(true);
+					        else
+					        	response.status(500).send(false);
 					    }
 					);
 			}
 			else
 			{
 				//Contraseña errónea, no se actualiza
-				response.status(500).send(false);
+				response.status(200).send(false);
 			}
 				
 		}
