@@ -27,7 +27,7 @@ exports.changePass=function(request,response)
 	//Comprobar que la contraseña vieja del usuario es correcta
 	User.find({US_NAME:b.US_NAME},function(error,user){
 		if(error){
-			response.status(500).send();
+			response.status(500).send(false);
 		}else{
 			if(user.US_PASS==b.VIEJA)
 			{
@@ -38,8 +38,15 @@ exports.changePass=function(request,response)
 					    {safe: true, upsert: true},
 					    function(err, model) {
 					        console.log(err);
+					        //Si se actualiza
+					        response.status(200).send(true);
 					    }
 					);
+			}
+			else
+			{
+				//Contraseña errónea, no se actualiza
+				response.status(500).send(false);
 			}
 				
 		}
