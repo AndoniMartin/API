@@ -7,8 +7,8 @@ angular.module('APINotack.loginController', ['ionic',])
 		$location.path("/notes");
 		 
         $scope.checkLogin=function(){
-        	var user = $scope.login.user;
-        	var pass = $scope.login.pass;
+        	var user = $scope.user;
+        	var pass = $scope.pass;
         	if(user!==null && pass!==null)
         	{
         		pass = sha512(pass);
