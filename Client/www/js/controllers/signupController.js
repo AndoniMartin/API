@@ -14,20 +14,13 @@ angular.module('APINotack.signupController', ['ionic'])
 	        			var promise = restClient.signup(name, pass);
 	                	promise.then(function(signedup) {
 	                		if (signedup) {
-	                			/* Guardar el usuario en el local storage. */
-	                			var user = new Object();
-	                			user.name = username;
-	                			user.pass = newPass;
-	                			user.logged = logged;
-	                			localStorage.setItem("user", JSON.stringify(user));
-	                			
 	                			/* Mostrar popUp. */
 	                			var alertPopup = $ionicPopup.alert({
 	                				title: 'Usuario registrado',
 	                				template: 'Gracias por registrarte en APINotack.'
 	                				});
 	                			alertPopup.then(function(res) {
-	                				$location.path("/notes");
+	                				$location.path("/login");
 	                			});
 	                		} else {
 	                			/* Mostrar popUp. */

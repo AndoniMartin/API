@@ -35,14 +35,14 @@ angular.module('APINotack.services',[])
 		return(promise);
 	}
 	
-	this.singup=function(US_NAME, US_PASS)
+	this.signup=function(US_NAME, US_PASS)
 	{
 		var request=new Object();
 		
 		request.US_NAME=US_NAME;
 		request.US_PASS=sha512(US_PASS);
 
-		var promise=$http.post(direccion+'/singup',request).success(function(validation){
+		var promise=$http.post(direccion+'/signup',request).success(function(validation){
 			return(validation);
 		});
 
