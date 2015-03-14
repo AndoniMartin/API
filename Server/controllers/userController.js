@@ -4,7 +4,7 @@ var mongoose=require('mongoose'),
 exports.login=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	User.find({US_NAME:b.US_NAME},function(error,user){
 		if(error){
@@ -22,7 +22,7 @@ exports.login=function(request,response)
 exports.changePass=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	//Comprobar que la contraseña vieja del usuario es correcta
 	User.find({US_NAME:b.US_NAME},function(error,user){
@@ -42,7 +42,7 @@ exports.changePass=function(request,response)
 					        if(error==null)
 					        	response.status(200).send(true);
 					        else
-					        	response.status(500).send(false);
+					        	response.status(500).send();
 					    }
 					);
 			}
@@ -56,10 +56,10 @@ exports.changePass=function(request,response)
 	});
 };
 
-exports.singup=function(request,response)
+exports.signup=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	//Comprobar que no exista el usuario
 	User.find({US_NAME:b.US_NAME},function(error,user){
@@ -69,9 +69,13 @@ exports.singup=function(request,response)
 			if(user)
 			{
 				//Añadir el usuario a la BD
-				var user = new User({ US_NAME: b.US_NAME, US_PASS: b.US_PASS, NOTES: [] });
+				new User({ US_NAME: b.US_NAME, US_PASS: b.US_PASS, NOTES: [] }).save(function(error){
+					if(error==null)
+			        	response.status(200).send(true);
+			        else
+			        	response.status(500).send();
+				});
 				
-				response.status(200).send(true);
 			}
 			else
 				response.status(200).send(false);

@@ -5,10 +5,16 @@ var mongoose=require('mongoose'),
 exports.addNote=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	//Añadir la nota
-	var nota = new Nota({ NO_Title: b.NO_Title, NO_Text: b.NO_Text, USER: b.US_Name});
+	var nota = new Nota({ NO_Title: b.NO_Title, NO_Text: b.NO_Text, USER: b.US_Name}).save(function(error){
+		//Si se actualiza
+        if(error==null)
+        	response.status(200).send(true);
+        else
+        	response.status(500).send();
+	});
 	//nota._id, id de la nota
 	
 	//El propietario tiene TY_ID de la nota = 1
@@ -28,7 +34,7 @@ exports.addNote=function(request,response)
 		        if(error==null)
 		        	response.status(200).send(true);
 		        else
-		        	response.status(500).send(false);
+		        	response.status(500).send();
 		    }
 		);
 };
@@ -37,7 +43,7 @@ exports.addNote=function(request,response)
 exports.getNotes=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	User.find({US_NAME:b.US_NAME},function(error,user){
 		if(error){
@@ -67,7 +73,7 @@ exports.getNotes=function(request,response)
 exports.updateNote=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	Note.findByIdAndDelete(
 		    b.NO_ID,
@@ -78,7 +84,7 @@ exports.updateNote=function(request,response)
 		        if(error==null)
 		        	response.status(200).send(true);
 		        else
-		        	response.status(500).send(false);
+		        	response.status(500).send();
 		    }
 		);
 };
@@ -86,7 +92,7 @@ exports.updateNote=function(request,response)
 exports.deleteNote=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	Note.findByI(
 		    b.NO_ID,
@@ -99,7 +105,7 @@ exports.deleteNote=function(request,response)
 		        if(error==null)
 		        	response.status(200).send(true);
 		        else
-		        	response.status(500).send(false);
+		        	response.status(500).send();
 		    }
 		);
 };
@@ -107,7 +113,7 @@ exports.deleteNote=function(request,response)
 exports.lock=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	response.status(200).send(lockList.addLock(b.noteId));
 };
@@ -116,7 +122,7 @@ exports.lock=function(request,response)
 exports.renewLock=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	response.status(200).send(lockList.renewLock(b.noteId));
 };
@@ -124,7 +130,7 @@ exports.renewLock=function(request,response)
 exports.shareNote=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	//Se comparte la nota según el tipo especificado (lectura/escritura)
 	var entrada = {
@@ -142,7 +148,7 @@ exports.shareNote=function(request,response)
 		        if(error==null)
 		        	response.status(200).send(true);
 		        else
-		        	response.status(500).send(false);
+		        	response.status(500).send();
 		    }
 		);
 };
@@ -151,7 +157,7 @@ exports.shareNote=function(request,response)
 exports.unshareNote=function(request,response)
 {
 	var b=request.body;
-	console.log(request);
+	console.log(b);
 	
 	//Desasociar la nota al usuario
 	User.update(
@@ -164,7 +170,7 @@ exports.unshareNote=function(request,response)
 		        if(error==null)
 		        	response.status(200).send(true);
 		        else
-		        	response.status(500).send(false);
+		        	response.status(500).send();
 		    }
 		);
 };

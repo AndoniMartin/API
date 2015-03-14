@@ -41,8 +41,8 @@ app.use(router);
 router.route('/login')
 .post(userController.login);
 
-router.route('/singup')
-.post(userController.singup);
+router.route('/signup')
+.post(userController.signup);
 
 router.route('/user')
 .post(userController.changePass);
