@@ -13,7 +13,12 @@ function lockList(){
 		}
 	}
 	
-	this.findNoteId=function(){
-		//TODO: Cambiar esto a HASH
+	this.findNoteId=function(noteId){
+		var found=false;
+		for(var i=0;i<this.lockList.length && !found)
+			if(this.lockList[i].noteId===noteId)
+				found=true;
+		
+		return found;
 	}
 }
