@@ -4,8 +4,8 @@ angular.module('APINotack.addController', ['ionic'])
         $scope.signup=function() {
         	var title = add.title;
         	var body = add.body;
-        	
-        	if (var user = localStorage.getItem("user")) { // Usuario logueado.
+        	var user = localStorage.getItem("user");
+        	if (user) { // Usuario logueado.
 	        	if (title && body) { // Campos no vacíos.
 	        		var promise = restClient.signup(user, title, body);
 	                promise.then(function() {
