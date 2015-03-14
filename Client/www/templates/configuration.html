@@ -1,0 +1,21 @@
+<ion-view title="Configuration" hide-back-button="true" hide-nav-bar="true">
+	<div class="card">
+	  <div class="item item-divider">
+	    Cambiar contraseña
+	  </div>
+	  <div class="item item-text-wrap">
+	  	<label class="item item-input">
+	    	<input ng-model="config.oldpass" type="password" placeholder="Contraseña antigua"></input>
+	    </label>
+	    <label class="item item-input">
+	    	<input ng-model="config.newpass" type="password" placeholder="Contraseña nueva"></input>
+	    </label>
+	    <label class="item item-input">
+	    	<input ng-model="config.reppass" type="password" placeholder="Repite contraseña"></input>
+	    </label>
+	    <label class="item item-input">
+	    	<button ng-click(updatePassword()) class="button button-block button-positive">Actualizar contraseña</button>
+	    </label>
+	  </div>
+	</div>
+</ion-view>
