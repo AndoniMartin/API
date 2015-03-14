@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic','APINotack.loginController','APINotack.services','APINotack.configController'])
+angular.module('starter', ['ionic','APINotack.loginController','APINotack.services','APINotack.configController'],'APINotack.signupController'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -50,6 +50,11 @@ angular.module('starter', ['ionic','APINotack.loginController','APINotack.servic
 		 url:'/configuration',
 		 templateUrl:'templates/configuration.html',
 		 controller:'configCtrl'
+	 })
+	 .state('signup',{
+		 url:'/signup',
+		 templateUrl:'templates/signup.html',
+		 controller:'signupCtrl'
 	 })
 	 $urlRouterProvider.otherwise('/login');
 });
