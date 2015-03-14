@@ -16,7 +16,7 @@ angular.module('APINotack.services',[])
 	}
 })
 
-.service('notesListService',eudroehudre{
+.service('notesListService',function(){
 	this.noteList=[];
 	this.getNoteIndex=function(index)
 	{
@@ -24,4 +24,13 @@ angular.module('APINotack.services',[])
 			return this.noteList[index];
 		else return null;
 	}
+	this.getNoteList=function()
+	{
+		return this.noteList;
+	}
+	
+	this.setNoteList=function(notes){
+		this.noteList=notes;
+	}
+	
 })

@@ -49,7 +49,23 @@ exports.getNotes=function(request,response)
 				
 				//Devolver el array de notas en JSON
 				//TODO terminar el envio de objetos
-				response.status(200).send(???);
+				response.status(200).send(notas);
 		}
 	});
+};
+
+exports.updateNote=function(request,response)
+{
+	//TODO implementar
+};
+
+exports.lock=function(request,response)
+{
+	//TODO implementar
+};
+
+
+exports.renewLock=function(request,response)
+{
+	//TODO implementar
 };
