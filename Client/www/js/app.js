@@ -20,19 +20,19 @@ angular.module('starter', ['ionic','APINotack.loginController','APINotack.servic
 
 .directive('notes',function(){
 	return{
-		templateUrl:'templates/notes.html'
+		templateUrl:'templates/directives/notes.html'
 	};
 })
 
 .directive('note',function(){
 	return{
-		templateUrl:'templates/note.html'
+		templateUrl:'templates/directives/note.html'
 	}
 })
 
 .directive('actions',function(){
 	return{
-		templateUrl:'templates/actions.html'
+		templateUrl:'templates/directives/actions.html'
 	}
 })
 
