@@ -1,9 +1,6 @@
 <ion-view title="Notas" hide-back-button="true">
-	<div class="bar bar-header bar-calm">
- 		<h1 class="title">Notas</h1>
-	</div>
-	<notes></notes>
-	<ion-nav-buttons side="left">
-	    <a class="button button-icon icon ion-plus-round" ui-sref="note"></a>
-	</ion-nav-buttons>
+	<ion-content  class="scroll-content ionic-scroll">
+		<ion-refresher on-refresh="getNotes()"></ion-refresher>
+		<notes></notes>
+	</ion-content>
 </ion-view>

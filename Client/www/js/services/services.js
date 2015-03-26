@@ -28,12 +28,13 @@ angular.module('APINotack.services',[])
 		request.US_NAME=US_NAME;
 		request.US_PASS=US_PASS;//Ya hasheada
 
-		var promise=$http.post(direccion+'/notes/'+NOTE_ID,request).success(function(notas){
+		var promise=$http.post(direccion+'/notes/',request).success(function(notas){
 			return(validation);
 		});
 
 		return(promise);
 	}
+
 	
 	this.signup=function(US_NAME, US_PASS)
 	{

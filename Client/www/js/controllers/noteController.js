@@ -2,10 +2,6 @@ angular.module('APINotack.noteController', ['ionic'])
 .controller('noteCtrl', function ($scope, $ionicPopup, $location, restClient) {
 	if(!localStorage.getItem("user"))
 		 $location.path("/login");
-	
-	$scope.title = note.title;
-	$scope.text = note.body;
-	
 	$scope.save = function() {
 		$scope.note = notesListService.getNoteIndex($stateParams.noteId);
 		if ($scope.note != null) {
