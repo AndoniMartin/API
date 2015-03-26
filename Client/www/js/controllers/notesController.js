@@ -8,7 +8,7 @@ angular.module('APINotack.notesController', ['ionic'])
 		 var user=JSON.parse(localStorage.getItem('user'));
 		 restClient.getNotes(user.name,user.pass).then(function(notes){
 			 if(notes.data)
-				 notesListService.setNotes(notes.data);
+				 notesListService.setNoteList(notes.data);
 			 else
 				 ;
 				//TODO: Popup error
