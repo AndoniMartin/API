@@ -8,7 +8,7 @@ exports.addNote=function(request,response)
 	console.log(b);
 	
 	//Añadir la nota
-	var nota = new Nota({ NO_Title: b.NO_Title, NO_Text: b.NO_Text, USER: b.US_Name}).save(function(error){
+	var nota = new Note({ NO_Title: b.NO_Title, NO_Text: b.NO_Text, USER: b.US_Name}).save(function(error){
 		//Si se actualiza
         if(error==null)
         	response.status(200).send(true);

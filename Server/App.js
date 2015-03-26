@@ -47,10 +47,10 @@ router.route('/signup')
 router.route('/user')
 .post(userController.changePass);
 
-router.route('/notes/:id')
+router.route('/notes')
 .post(notesController.getNotes);
 
-router.route('/notes')
+router.route('/notes/add')
 .post(notesController.addNote);
 
 router.route('/notes/update')
