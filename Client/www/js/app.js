@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic','APINotack.loginController','APINotack.services','APINotack.configController','APINotack.signupController'/*,'APINotack.shareController'*/,'APINotack.notesController','APINotack.noteController'])
+angular.module('starter', ['ionic','APINotack.loginController','APINotack.services','APINotack.configController','APINotack.signupController','APINotack.shareController','APINotack.notesController','APINotack.noteController'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -69,11 +69,10 @@ angular.module('starter', ['ionic','APINotack.loginController','APINotack.servic
 		 templateUrl:'templates/signup.html',
 		 controller:'signupCtrl'
 	 })
-	 /*
 	 .state('share',{
 		 url:'/share/:noteId',
 		 templateUrl:'templates/share.html',
 		 controller:'shareCtrl'
-	 })*/
+	 })
 	 $urlRouterProvider.otherwise('/login');
 });
