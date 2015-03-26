@@ -11,32 +11,33 @@ exports.addNote=function(request,response)
 	var nota = new Note({ NO_Title: b.NO_Title, NO_Text: b.NO_Text, USER: b.US_Name}).save(function(error){
 		//Si se actualiza
         if(error==null)
-        	response.status(200).send(true);
+        	{
+	        	//nota._id, id de la nota
+	        	
+	        	//El propietario tiene TY_ID de la nota = 1
+	        	var entrada = {
+	        			NO_ID: nota._id,
+	        			TY_ID: 1
+	        	}
+	        	
+	        	//Asociar la nota al usuario
+	        	User.findOneAndUpdate(
+	        		    {US_Name: b.US_Name},
+	        		    {$push: {Notes: entrada}},
+	        		    {safe: true, upsert: true},
+	        		    function(error, model) {
+	        		        console.log(error);
+	        		      //Si se actualiza
+	        		        if(error==null)
+	        		        	response.status(200).send(true);
+	        		        else
+	        		        	response.status(500).send();
+	        		    }
+	        		);
+        	}
         else
         	response.status(500).send();
 	});
-	//nota._id, id de la nota
-	
-	//El propietario tiene TY_ID de la nota = 1
-	var entrada = {
-			NO_ID: nota._id,
-			TY_ID: 1
-	}
-	
-	//Asociar la nota al usuario
-	User.findOneAndUpdate(
-		    {US_Name: b.US_Name},
-		    {$push: {Notes: entrada}},
-		    {safe: true, upsert: true},
-		    function(error, model) {
-		        console.log(error);
-		      //Si se actualiza
-		        if(error==null)
-		        	response.status(200).send(true);
-		        else
-		        	response.status(500).send();
-		    }
-		);
 };
 
 
