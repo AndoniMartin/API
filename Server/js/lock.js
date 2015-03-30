@@ -8,7 +8,8 @@
 
 function Lock(idNota){
 	this.noteID = idNota;
-	this.expireDate = new Date();
+	this.expireDate = new Date();//5min de lock
+	expireDate.setMinutes(expireDate.getMinutes() + 5);
 	
 	this.isExpired = function()
 	{
@@ -28,5 +29,7 @@ function Lock(idNota){
 	this.renew=function()
 	{
 		this.expireDate=new Date();
+		//5min de lock
+		expireDate.setMinutes(expireDate.getMinutes() + 5);
 	}
 }

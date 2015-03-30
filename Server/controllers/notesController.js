@@ -153,7 +153,7 @@ exports.lock=function(request,response)
 	var b=request.body;
 	console.log(b);
 	
-	response.status(200).send(lockList.addLock(b.noteId));
+	response.status(200).send(lockListManager.getInstance().addLock(b.NO_ID));//(lockList.addLock(b.noteId));
 };
 
 
@@ -162,7 +162,7 @@ exports.renewLock=function(request,response)
 	var b=request.body;
 	console.log(b);
 	
-	response.status(200).send(lockList.renewLock(b.noteId));
+	response.status(200).send(lockListManager.getInstance().renewLock(b.NO_ID));//(lockList.renewLock(b.noteId));
 };
 
 exports.shareNote=function(request,response)
