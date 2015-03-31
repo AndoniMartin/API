@@ -15,13 +15,13 @@ angular.module('APINotack.notesController', ['ionic'])
 		 });
 	 }
 	 $scope.deleteNote=function(note) {
- 		var promise=restClient.deleteNote(note.title);
-    	promise.then(function(updated) {
-    		var alertPopup = $ionicPopup.alert({
+		 restClient.deleteNote(note.title)
+    	.then(function(updated) {
+    		$ionicPopup.alert({
 			     title: 'Nota Eliminada',
 			     template: 'La nota '+note.title+' ha sido borrada.'
-			   });
-			   alertPopup.then(function(res) {
+			   })
+			   .then(function(res) {
 			     ;
 			   });
     	});
