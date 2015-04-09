@@ -3,8 +3,8 @@ angular.module('APINotack.services',[])
 .service('restClient',function($http){
 	
 	//url para la conexion al servidor
-	var direccion = 'http://10.106.22.15:3000';//debug
-	//var direccion = 'http://localhost:3000';//debug
+	//var direccion = 'http://10.106.22.15:3000';//debug
+	var direccion = 'http://localhost:3000';//debug
 	//var direccion = 'http://david-net.softether.net:3000';//producción
 	
 	this.login=function(US_NAME,US_PASS)
@@ -29,7 +29,7 @@ angular.module('APINotack.services',[])
 		request.US_PASS=US_PASS;//Ya hasheada
 
 		var promise=$http.post(direccion+'/notes/',request).success(function(notas){
-			return(validation);
+			return(notas);
 		});
 
 		return(promise);
