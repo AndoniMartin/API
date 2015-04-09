@@ -21,14 +21,14 @@ angular.module('APINotack.services',[])
 		return(promise);
 	}
 	
-	this.getNotes=function(US_NAME, US_PASS, NOTE_ID)
+	this.getNotes=function(US_NAME, US_PASS)
 	{
 		var request=new Object();
 		
 		request.US_NAME=US_NAME;
 		request.US_PASS=US_PASS;//Ya hasheada
 
-		var promise=$http.post(direccion+'/notes/',request).success(function(notas){
+		var promise=$http.post(direccion+'/notes',request).success(function(notas){
 			return(notas);
 		});
 
@@ -58,7 +58,7 @@ angular.module('APINotack.services',[])
 		request.NO_TITLE=NO_TITLE;
 		request.NO_TEXT=NO_TEXT;
 
-		var promise=$http.post(direccion+'/notes',request).success(function(validation){
+		var promise=$http.post(direccion+'/notes/add',request).success(function(validation){
 			return(validation);
 		});
 
