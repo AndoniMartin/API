@@ -21,7 +21,7 @@ angular.module('APINotack.notesController', ['ionic'])
 	 $scope.getNotes();
 	 
 	 $scope.deleteNote=function(note) {
-		 restClient.deleteNote(note.title)
+		 restClient.deleteNote(note._id)
     	.then(function(updated) {
     		$ionicPopup.alert({
 			     title: 'Nota Eliminada',

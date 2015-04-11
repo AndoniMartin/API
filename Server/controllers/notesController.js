@@ -113,12 +113,14 @@ exports.updateNote=function(request,response)
 	var b=request.body;
 	console.log(b);
 	
-	Note.findByIdAndDelete(
+	Note.findById(
 		    b.NO_ID,
+		    {$set: {NO_TITLE: b.NO_TITLE},
+		    $set: {NO_TEXT: b.NO_TEXT}},
 		    {safe: true, upsert: true},
 		    function(error, model) {
 		        console.log(error);
-		      //Si se borra
+		      //Si se actualiza
 		        if(error==null)
 		        	response.status(200).send(true);
 		        else
@@ -129,17 +131,15 @@ exports.updateNote=function(request,response)
 
 exports.deleteNote=function(request,response)
 {
+	//TODO hay que recibir el usuario para borrarle la nota
 	var b=request.body;
 	console.log(b);
 	
-	Note.findById(
+	Note.remove(
 		    b.NO_ID,
-		    {$set: {NO_TITLE: b.NO_TITLE},
-		    $set: {NO_TEXT: b.NO_TEXT}},
-		    {safe: true, upsert: true},
-		    function(error, model) {
+		    function(error) {
 		        console.log(error);
-		      //Si se actualiza
+		      //Si se borra
 		        if(error==null)
 		        	response.status(200).send(true);
 		        else
