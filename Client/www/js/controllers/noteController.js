@@ -3,7 +3,8 @@ angular.module('APINotack.noteController', ['ionic'])
 	if(!localStorage.getItem("user"))
 		 $location.path("/login");
 	$scope.save = function() {
-		$scope.note = notesListService.getNoteIndex($stateParams.noteId);
+		//TODO implementar la actualización de la nota
+		/*$scope.note = notesListService.getNoteIndex($stateParams.noteId);
 		if ($scope.note != null) {
 			var promise = restClient.updateNote($scope.note, $scope.title, $scope.text);
 			 promise.then(function() {
@@ -15,13 +16,15 @@ angular.module('APINotack.noteController', ['ionic'])
   				     ;
   				 })
 			 })
-		} else {
-			var user = localStorage.getItem("user");
-        	if (title && body) { // Campos no vacíos.
-	        	var promise = restClient.addNote(user, $scope.title, $scope.text);
+		} else */{
+			var user=JSON.parse(localStorage.getItem('user'));
+			var title = this.title;
+			var text = this.body;
+        	if (title!= null && text!=null) { // Campos no vacíos.
+	        	var promise = restClient.addNote(user.name, title, text);
                 promise.then(function() {
             		$location.path("/notes");
-            	})
+            	});
         	} else { // Algún campo vacío.
         		/* Mostrar popUp. */
     			var alertPopup = $ionicPopup.alert({

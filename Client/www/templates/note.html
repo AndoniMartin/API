@@ -1,8 +1,6 @@
-<ion-view title="Nota" hide-back-button="false" hide-nav-bar="true">
-	<div class="bar bar-header bar-calm">
- 		<h1 class="title">Nota</h1>
-	</div>
-	<div class="list">
+<ion-view title="Nota">
+<ion-content>
+	<div class="card">
 	  <label class="item item-input">
 	    <input ng-required="true" ng-model="title" type="text" placeholder="Título">
 	  </label>
@@ -13,6 +11,7 @@
 	  	<button ng-click="save()" class="button button-block button-positive">Guardar</button>
 	  </label>
 	</div>
+</ion-content>
 	<ion-nav-buttons side="right">
 	    <a class="button button-icon icon ion-gear-b" ui-sref="configuration"></a>
 	</ion-nav-buttons>

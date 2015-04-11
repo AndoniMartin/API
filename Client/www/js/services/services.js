@@ -50,7 +50,7 @@ angular.module('APINotack.services',[])
 		return(promise);
 	}
 	
-	this.addnote=function(US_NAME, NO_TITLE, NO_TEXT)
+	this.addNote=function(US_NAME, NO_TITLE, NO_TEXT)
 	{
 		var request=new Object();
 		
