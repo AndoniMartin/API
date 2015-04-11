@@ -7,13 +7,19 @@ angular.module('APINotack.notesController', ['ionic'])
 	 $scope.getNotes=function(){
 		 var user=JSON.parse(localStorage.getItem('user'));
 		 restClient.getNotes(user.name,user.pass).then(function(notes){
-			 if(notes.data)
+			 if(notes.data){
 				 notesListService.setNoteList(notes.data);
+			 	 $scope.notes=notes.data;
+			 }
 			 else
 				 ;
 				//TODO: Popup error
 		 });
 	 }
+	 
+	 //Pedir las notas al cargar
+	 $scope.getNotes();
+	 
 	 $scope.deleteNote=function(note) {
 		 restClient.deleteNote(note.title)
     	.then(function(updated) {
