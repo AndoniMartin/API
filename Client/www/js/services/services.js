@@ -5,7 +5,7 @@ angular.module('APINotack.services',[])
 	//url para la conexion al servidor
 	//var direccion = 'http://192.168.1.43:3000';//debug
 	//var direccion = 'http://localhost:3000';//debug
-	var direccion = 'http://david-net.softether.net:3000';//producción
+	var direccion = 'http://david-net.softether.net:80';//producción
 	
 	this.login=function(US_NAME,US_PASS)
 	{
